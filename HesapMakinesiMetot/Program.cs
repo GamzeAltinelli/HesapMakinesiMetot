@@ -12,12 +12,15 @@ namespace HesapMakinesiMetot
         {
             KullaniciyiKarsila();
             KullaniciyiBilgilendir();
-            byte islem = KullanicidanIslemTuruBilgisiAl();
-            IslemTurunuKontrolEt(islem);
-            double sayi1 = KullanicidanSayiAl();
-            double sayi2 = KullanicidanSayiAl();
-            double sonuc = Hesapla(islem, sayi1, sayi2);
-            SonucYaz(sonuc);
+            //byte islem = KullanicidanIslemTuruBilgisiAl();
+            //IslemTurunuKontrolEt(islem);
+            //double sayi1 = KullanicidanSayiAl();
+            //double sayi2 = KullanicidanSayiAl();
+            //double sonuc = Hesapla(islem, sayi1, sayi2);
+            double sonuc=Topla(1.1, 2);
+            Topla(1, 2, 3);
+            Topla(1, 2,"toplam");
+            //SonucYaz(sonuc);
             KullaniciyiUgurla();
         }
 
@@ -111,12 +114,11 @@ namespace HesapMakinesiMetot
             if (sayi2==0)
             {
                 Console.WriteLine("İkinci sayıyı 0 girdiğiniz için tekrar giriş yapmanız gerekmektedir.");
-                sayi2 = KullanicidanSayiAl();
-                Sayi2KontrolEt(sayi2);
+                return KullanicidanSayiAl();
                 if (sayi1==0)
                 {
                     Console.WriteLine("0/0 belirsizliğinden dolayı ilk sayı için tekrar giriş yapınız.");
-                    sayi1 = KullanicidanSayiAl();
+                    return KullanicidanSayiAl();
                 }
             }
             return sayi1 / sayi2;
@@ -143,11 +145,27 @@ namespace HesapMakinesiMetot
             return sayi1 - sayi2;
         }
 
+        //İki sayı için yazılmış Topla metodu
         private static double Topla(double sayi1, double sayi2)
         {
             return sayi1 + sayi2;
+        } 
+        //İki sayı için yazılmış Topla metodu
+        private static int Topla(int sayi1, double sayi2)
+        {
+            return sayi1 + (int)sayi2;
+        }
+        //İki sayı için yazılmış Topla metodu
+        private static void Topla(double sayi1, double sayi2,string islem)
+        {
+            Console.WriteLine("İslem: "+islem+ " "+sayi1 + sayi2);
         }
 
+        //Üç sayı için yazılmış Topla metodu
+        private static double Topla(double sayi1, double sayi2,double sayi3)
+        {
+            return sayi1 + sayi2+sayi3;
+        }
         private static void SonucYaz(double sonuc)
         {
             Console.WriteLine("İşlem sonucunuz: " + sonuc);
